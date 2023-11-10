@@ -13,6 +13,10 @@ class Grade:
         # 발생하는 메모리 누수를 막기 위함이다.
 
     def __get__(self, instance, instance_type):
+        # 파이썬에서는 기본적으로 객체의 멤버 변수를 조회하기 위해
+        # `a.b` 와 같은 구문을 사용할 때
+        # 객체 exam 의 애트리뷰트를 먼저 뒤진 다음, 발견하지 못하면
+        # 클래스 Exam 의 클래스 애트리뷰트를 뒤진다.
         if instance is None:
             return self
         return self._values.get(instance, 0)
@@ -37,16 +41,16 @@ if __name__ == '__main__':
 
     # first_exam.writing_grade = 82 코드는
     # 다음과 같이 다시 작성해볼 수 있다.
-    # Exam.__dict__['first_exam'].__set__(exam, 82)
+    # Exam.__dict__['writing_grade'].__set__(exam, 82)
     first_exam.writing_grade = 82
 
-    # Exam.__dict__['second_exam'].__set__(exam, 82)
+    # Exam.__dict__['writing_grade'].__set__(exam, 82)
     second_exam.writing_grade = 75
 
     # print(first_exam.writing_grade) 코드는
     # 다음과 같이 다시 작성해볼 수 있다.
-    # Exam.__dict__['first_exam'].__get__(exam, Exam)
+    # Exam.__dict__['writing_grade'].__get__(exam, Exam)
     print(f'{first_exam.writing_grade} 맞음')
 
-    # Exam.__dict__['second_exam'].__get__(exam, Exam)
+    # Exam.__dict__['writing_grade'].__get__(exam, Exam)
     print(f'{second_exam.writing_grade} 맞음')
