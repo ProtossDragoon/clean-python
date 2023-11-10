@@ -6,6 +6,9 @@ class ValidatePolygon(type):
     def __new__(meta, name, bases, class_dict):
         if bases: # 하위 클래스만 검증한다. 하위 클래스가 아닌 경우 bases 변수에는 빈 튜플이 들어 있다.
             if class_dict['sides'] < 3:
+                # `class_dict` 에는 클래스 애트리뷰트가 저장되어 있다.
+                # 이 메서드는 하위 클래스의 선언부가 인터프리터에게 발견되는 시점에 실행되므로
+                # 당연히 객체 애트리뷰트는 조회가 불가능하다.
                 raise ValueError('다각형의 변은 최소 3개입니다.')
         return type.__new__(meta, name, bases, class_dict)
 
