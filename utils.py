@@ -1,3 +1,6 @@
+from functools import wraps
+
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -10,6 +13,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 
+@wraps(print)
 def colorprint(*args, **kwargs):
     args = [f'{arg}' for arg in args]
     e = ' '.join(args)
