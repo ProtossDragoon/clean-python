@@ -1,10 +1,13 @@
+""" `__get__`과 `__set__`을 구현하는 일을 디스크립터 프로토콜을 구현하는 일이라고 한다.
+디스크립터 프로토콜은 파이썬에서 애트리뷰트 접근을 해석하는 방법을 정의한다.
+@property (getter), setter이 점점 많아지는 것 같을 때 선택을 고민해보자.
+디스크립터 프로토콜을 이용하면 비슷한 성질을 가진 애트리뷰트들에 대해서
+동일한 getter, setter 로직을 하나의 메서드 내부에 모아 표현할 수 있기 때문이다.
+"""
+
 from weakref import WeakKeyDictionary
 
 
-# `__get__`과 `__set__`을 구현하는 일을
-# 디스크립터 프로토콜을 구현하는 일이라고 한다.
-# 디스크립터 프로토콜은 파이썬에서 애트리뷰트 접근을 해석하는 방법을 정의한다.
-# @property, setter이 점점 많아지는 것 같을 때 선택을 고민해보자.
 class Grade:
     def __init__(self) -> None:
         self._values = WeakKeyDictionary()
