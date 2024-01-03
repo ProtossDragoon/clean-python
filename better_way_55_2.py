@@ -59,7 +59,7 @@ def start_threads(count, *args):
 def stop_threads(queue: BetterQueue, threads: list[Thread]):
     for _ in threads:
         queue.close()
-    queue.join()
+    queue.join() # 큐에 있는 모든 원소들이 처리될 때까지 대기.
 
     for thread in threads:
         thread.join()
