@@ -34,9 +34,11 @@
      3.   키워드: 트레이스
      4.   키워드: `sys.stderr`
 58.  `Queue` 를 이용하여 리팩토링하는 방법을 알고, 어떤 장단점이 있는지 기억해두어라.
+59.  스레드가 필요한 경우에는 `ThreadPoolExecutor`를 사용하라.
+     1.   키워드: `future.submit`, `future.result`
 
 > skip ...
 
-1.   프로그램이 메모리를 사용하는 방식과 누수를 이해하기 위해 `tracemalloc`을 사용하라.
+81.  프로그램이 메모리를 사용하는 방식과 누수를 이해하기 위해 `tracemalloc`을 사용하라.
      1.   용어: 참조, 참조 카운팅
      2.   용어: 스택 트레이스(stack trace)
