@@ -68,6 +68,9 @@ def game_logic(
     io_blocking_time: float = 0.01,
     io_error: bool = False
 ):
+    """ 특정 셀과 해당 셀 근처에 몇 개의 이웃이 있는지를 확인하여
+    해당 셀이 다음 세대에 생존할 수 있는지 판단합니다.
+    """
     if io_blocking_time:
         # print('I/O Blocking ... ')
         time.sleep(io_blocking_time)
@@ -91,6 +94,9 @@ def step_cell(
     get: typing.Callable,
     set: typing.Callable,
 ) -> None:
+    """ 그리드 내 특정 위치 주변의 상태를 확인한 뒤
+    다음 세대의 결과에 해당 값을 반영합니다.
+    """
     state = get(y, x)
     neighbors = count_neighbors(y, x, get)
     next_state = game_logic(state, neighbors)
