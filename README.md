@@ -36,6 +36,10 @@
 58.  `Queue` 를 이용하여 리팩토링하는 방법을 알고, 어떤 장단점이 있는지 기억해두어라.
 59.  스레드가 필요한 경우에는 `ThreadPoolExecutor`를 사용하라.
      1.   키워드: `future.submit`, `future.result`
+60.  스레드 대신 코루틴을 사용하는 것도 방법이다.
+     1.   용어: 코루틴(coroutine)
+     2.   용어: 이벤트 루프
+     3.   키워드: `asyncio`, `await`, `coroutine.gather`
 
 > skip ...
 
